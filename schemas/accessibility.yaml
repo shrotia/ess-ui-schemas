@@ -8,7 +8,7 @@ defaults:
 listing:
   Card:
     required:
-      title: $.description
+      title: $.title
       added: $.createdAt
       linkText: "View Runbook"
       navUrl: $.runbook

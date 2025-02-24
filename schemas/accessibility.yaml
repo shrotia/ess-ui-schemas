@@ -1,0 +1,36 @@
+configVersion: 1.0
+opportunityType: accessibility
+
+defaults:
+  optimization: "health"
+  status: "NEW"
+
+listing:
+  Card:
+    required:
+      title: $.description
+      added: $.createdAt
+      linkText: "View Runbook"
+      navUrl: $.runbook
+      opportunityType: $.type
+    optional:
+      tags:
+        - title: $.tags[0]
+          variant: "info"
+      buttons:
+        - label: "Fix Issue"
+          variant: "primary"
+          fillStyle: "solid"
+          onPress: "navigateToFixIssue"
+        - label: "Learn More"
+          variant: "secondary"
+          fillStyle: "outline"
+          onPress: "navigateToRunbook"
+      metricData:
+        - value: $.data.projectedTrafficLost
+          description: "Projected Traffic Lost"
+          variant: "negative"
+        - value: $.data.projectedTrafficValue
+          description: "Projected Traffic Value"
+          variant: "positive"
+      thumbnailUrl: null
